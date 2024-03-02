@@ -7,18 +7,18 @@ import com.plcoding.core.domain.model.UserInfo
 
 interface Preferences {
     fun saveGender(gender: Gender)
-    fun saveAge(age:Int)
-    fun saveWeight(weight:Float)
-    fun saveHeight(height:Int)
+    fun saveAge(age: Int)
+    fun saveWeight(weight: Float)
+    fun saveHeight(height: Int)
     fun saveActivityLevel(level: ActivityLevel)
     fun saveGoalType(type: GoalType)
-    fun saveCarbRatio(ratio:Float)
-    fun saveProteinRatio(ratio:Float)
-    fun saveFatRatio(ratio:Float)
+    fun saveCarbRatio(ratio: Float)
+    fun saveProteinRatio(ratio: Float)
+    fun saveFatRatio(ratio: Float)
 
-    fun loadUserInfo():UserInfo
+    fun loadUserInfo(): UserInfo
 
-    companion object{
+    companion object {
         const val KEY_GENDER = "gender"
         const val KEY_AGE = "age"
         const val KEY_WEIGHT = "weight"
