@@ -54,7 +54,6 @@ class MainActivity : ComponentActivity() {
                                 scaffoldState = scaffoldState,
                                 onNavigate = navController::navigate
                             )
-
                         }
                         composable(Route.HEIGHT){
                             HeightScreen(
