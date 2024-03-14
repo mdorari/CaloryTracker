@@ -12,7 +12,7 @@ import ocm.plcoding.tracker_domain.use_case.DeleteTrackedFood
 import ocm.plcoding.tracker_domain.use_case.GetFoodForDate
 import ocm.plcoding.tracker_domain.use_case.SearchFood
 import ocm.plcoding.tracker_domain.use_case.TrackFood
-import ocm.plcoding.tracker_domain.use_case.TrackerUsecases
+import ocm.plcoding.tracker_domain.use_case.TrackerUseCases
 
 
 @Module
@@ -24,8 +24,8 @@ object TrackerDomainModule {
     fun provideTrackerUseCases(
         repository: TrackerRepository,
         preferences: Preferences
-    ):TrackerUsecases{
-        return TrackerUsecases(
+    ):TrackerUseCases{
+        return TrackerUseCases(
             trackFood = TrackFood(repository),
             searchFood = SearchFood(repository),
             getFoodForDate = GetFoodForDate(repository),

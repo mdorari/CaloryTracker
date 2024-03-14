@@ -15,13 +15,13 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import ocm.plcoding.tracker_domain.use_case.TrackerUsecases
+import ocm.plcoding.tracker_domain.use_case.TrackerUseCases
 import javax.inject.Inject
 
 @HiltViewModel
 class TrackerOverviewViewModel @Inject constructor(
     preferences: Preferences,
-    private val trackerUseCases: TrackerUsecases
+    private val trackerUseCases: TrackerUseCases
 ) : ViewModel() {
 
     var state by mutableStateOf(TrackerOverviewState())
