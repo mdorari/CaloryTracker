@@ -45,9 +45,9 @@ class TrackerOverviewViewModel @Inject constructor(
                         UiEvent.Navigate(
                             route = Route.SEARCH
                                     + "/${event.meal.mealType.name}"
-                                    + "?${state.date.dayOfMonth}"
-                                    + "?${state.date.monthValue}"
-                                    + "?${state.date.year}"
+                                    + "/${state.date.dayOfMonth}"
+                                    + "/${state.date.monthValue}"
+                                    + "/${state.date.year}"
                         )
                     )
                 }
