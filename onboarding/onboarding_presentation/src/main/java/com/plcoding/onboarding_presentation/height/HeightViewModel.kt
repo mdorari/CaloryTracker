@@ -10,7 +10,6 @@ import com.plcoding.core.domain.use_case.FilterOutDigits
 import com.plcoding.core.util.UiEvent
 import com.plcoding.core.util.UiText
 import com.plcoding.core.R
-import com.plcoding.core.navigation.Route
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -45,7 +44,7 @@ class HeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveAge(heightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

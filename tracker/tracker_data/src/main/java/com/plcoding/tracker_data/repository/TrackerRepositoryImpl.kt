@@ -7,7 +7,6 @@ import com.plcoding.tracker_data.mapper.toTrackedFoodEntity
 import com.plcoding.tracker_data.remote.OpenFoodApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapNotNull
 import ocm.plcoding.tracker_domain.model.TrackableFood
 import ocm.plcoding.tracker_domain.model.TrackedFood
 import ocm.plcoding.tracker_domain.respoditory.TrackerRepository
@@ -30,7 +29,17 @@ class TrackerRepositoryImpl(
                 pageSize = pageSize
             )
             Result.success(
-                searchDao.products.mapNotNull { it.toTrackableFood() }
+                searchDao.products
+                    .filter {
+                        val calculatedCalories =
+                            it.nutriments.carbohydrates100g * 4f +
+                                    it.nutriments.proteins100g * 4f +
+                                    it.nutriments.fat100g * 9f
+                        val lowerBound = calculatedCalories * 0.99f
+                        val upperBound = calculatedCalories * 1.01f
+                        it.nutriments.energyKcal100g in (lowerBound..upperBound)
+                    }
+                    .mapNotNull { it.toTrackableFood() }
             )
         } catch (e: Exception) {
             e.printStackTrace()
